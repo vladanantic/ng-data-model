@@ -1,0 +1,13 @@
+{
+    "name": "horisen-data",
+    "authors": [
+        "Vladan Antic <vladan@horisen.com>"
+    ],
+    "description": "HORISEN Data Services",
+    "main": "dist/horisen-data.js",
+    "dependencies": {
+    },
+    "ignore": [
+        "dev" 
+    ]
+}
