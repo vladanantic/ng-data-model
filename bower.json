@@ -1,6 +1,7 @@
 {
     "name": "horisen-data",
-    "authors": [
+	"version": "1.0.0", 
+	"authors": [
         "Vladan Antic <vladan@horisen.com>"
     ],
     "description": "HORISEN Data Services",
