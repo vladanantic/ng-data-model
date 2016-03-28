@@ -1,5 +1,5 @@
 /**
- * @name    Horisen Data
+ * @name    Horisen Data - Module
  * @desc 
  */
 
@@ -7,10 +7,49 @@
     'use strict';
 
     angular
-        .module('horisen.data', []); 
+        .module('horisen.data', ['horisen'])
+        .factory('services.dataService', dataService);
+
+    dataService.$inject = ['apiResource', 'dataModel'];
+    
+    function dataService(apiResource, dataModel){
+        var services = {
+            apiResource: apiResource,
+            dataModel: dataModel
+        };
+
+        return services;
+    }
 
 })(window.angular);
 
+/**
+ * @name    Horisen Data - Provider
+ * @desc 
+ */
+
+(function(angular) {
+    'use strict';
+
+    angular
+        .module('horisen.data')
+        .provider('providers.data', dataProvider);
+        
+    dataProvider.$inject = [];
+    
+    function dataProvider() {
+        /* jshint validthis:true */
+        this.config = {
+        };
+
+        this.$get = function() {
+            return {
+                config: this.config
+            };
+        };
+    }
+    
+})(window.angular);
 /**
  * @name    dataModel
  * @desc    The service to save and maintenance data into storage object
@@ -69,7 +108,7 @@
             setData: function(data){
                 var store = this.getStore();
                 
-                if (store && data && typeof(data) === 'object')
+                if (store && data !== undefined)
                     store.data = data;
             },
             
